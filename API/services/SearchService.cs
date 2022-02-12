@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Text.Json;
 using System.Threading.Tasks;
 using API.Models;
@@ -52,7 +54,9 @@ namespace API.services
         public Buildings searchItem(string searchTerm)
         {
             var webClient = new WebClient();
-            var json = webClient.DownloadString(@"C:\kush\LSMDemo\API\Data\data.json");
+
+            string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Data\data.json");
+            string json = File.ReadAllText(path);
             Dictionary<string, object> jsonDict = new Dictionary<string, object>();
             RootViewModel  viewModel = new RootViewModel();
             viewModel =Newtonsoft.Json.JsonConvert.DeserializeObject<RootViewModel>(json);
