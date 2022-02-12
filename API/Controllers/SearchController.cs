@@ -22,10 +22,13 @@ namespace API.Controllers
 
         [HttpGet]
         public Root getData(){
-            // var webClient = new WebClient();
-            // var json = webClient.DownloadString(@"C:\kush\LSMDemo\API\Data\data.json");
-            // var data = JsonConvert.DeserializeObject<Root>(json);
             var data = searchService.search();
+            return data;
+        }
+
+        [HttpGet("{searchTerm}")]
+        public Buildings getData(string searchTerm){
+            var data = searchService.searchItem(searchTerm);
             return data;
         }
     }

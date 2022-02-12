@@ -9,5 +9,6 @@ namespace API.services
     public interface ISearchService
     {
         Root search();
+        Buildings searchItem(string searchTerm);
     }
 }
