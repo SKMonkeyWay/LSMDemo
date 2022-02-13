@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./serchbar.component.css']
 })
 export class SerchbarComponent implements OnInit {
+  data: any
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+  }
+
+  getData(){
+    this.http.get('https://localhost:5001/api/search').subscribe(response => {
+      this.data = response;
+    },error => {
+      console.log(error);
+    })
   }
 
 }

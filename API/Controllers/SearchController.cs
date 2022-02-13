@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using API.DTOs;
 using API.Models;
 using API.services;
 using Microsoft.AspNetCore.Mvc;
@@ -20,16 +21,12 @@ namespace API.Controllers
             this.searchService = searchService;
         }
 
-        [HttpGet]
-        public Root getData(){
-            var data = searchService.search();
-            return data;
-        }
-
-        [HttpGet("{searchTerm}")]
-        public Buildings getData(string searchTerm){
-            var data = searchService.searchItem(searchTerm);
-            return data;
+        [HttpPost()]
+        public ActionResult<RootViewModel>searchLocks(SearchDTO SearchDto)
+        {
+            RootViewModel viewModel = new RootViewModel();            
+            viewModel = searchService.searchItem(SearchDto);            
+            return viewModel;
         }
     }
 }
