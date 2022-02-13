@@ -1,13 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-using API.DTOs;
 using API.Models;
 using API.services;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 
 namespace API.Controllers
 {
@@ -21,11 +14,10 @@ namespace API.Controllers
             this.searchService = searchService;
         }
 
-        [HttpPost()]
-        public ActionResult<RootViewModel>searchLocks(SearchDTO SearchDto)
+        [HttpGet()]
+        public ActionResult<RootViewModel> searchLocks([FromQuery] string Searchquery)
         {
-            RootViewModel viewModel = new RootViewModel();            
-            viewModel = searchService.searchItem(SearchDto);            
+            RootViewModel viewModel = searchService.searchItem(Searchquery);
             return viewModel;
         }
     }
