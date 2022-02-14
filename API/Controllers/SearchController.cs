@@ -14,7 +14,7 @@ namespace API.Controllers
             this.searchService = searchService;
         }
 
-        [HttpGet()]
+        [HttpGet]
         public ActionResult<RootViewModel> searchLocks([FromQuery] string Searchquery)
         {
             RootViewModel viewModel = searchService.searchItem(Searchquery);

@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SerchbarComponent } from './serchbar/serchbar.component';
+import { SearchlistComponent } from './searchlist/searchlist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SerchbarComponent
+    SerchbarComponent,
+    SearchlistComponent
     
   ],
   imports: [
