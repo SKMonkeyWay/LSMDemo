@@ -177,3 +177,18 @@ ul {
     margin-bottom: 30px;
     margin-top: 30px;
 }
+.career-form .form-control,
+.career-form .btn {
+  height: 48px;
+}
+.career-form .btn {
+  transition: 0.2s all linear;
+}
+.career-form .btn:hover,
+.career-form .btn:focus {
+  background: #5167ea;
+  color: #ffffff;
+}
+.btn-group-lg>.btn, .btn-lg {
+  font-size: 1rem;
+}

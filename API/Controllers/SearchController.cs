@@ -1,3 +1,4 @@
+using API.DTOs;
 using API.Models;
 using API.services;
 using Microsoft.AspNetCore.Mvc;
@@ -14,11 +15,11 @@ namespace API.Controllers
             this.searchService = searchService;
         }
 
-        [HttpGet]
-        public ActionResult<RootViewModel> searchLocks([FromQuery] string Searchquery)
+        [HttpPost]
+        public IActionResult searchLocks(SearchQueryDto searchqueryDto)
         {
-            RootViewModel viewModel = searchService.searchItem(Searchquery);
-            return viewModel;
+            RootViewModel viewModel = searchService.searchItem(searchqueryDto.searchQuery);
+            return Ok(viewModel);
         }
     }
 }
