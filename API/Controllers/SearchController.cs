@@ -18,8 +18,17 @@ namespace API.Controllers
         [HttpPost]
         public IActionResult searchLocks(SearchQueryDto searchqueryDto)
         {
-            RootViewModel viewModel = searchService.searchItem(searchqueryDto.searchQuery);
-            return Ok(viewModel);
+            string msg = "";
+            if (string.IsNullOrEmpty(searchqueryDto.searchQuery)){
+                msg = "please search something....";
+                return Ok(msg);
+            }
+            else
+            {
+                RootViewModel viewModel = searchService.searchItem(searchqueryDto.searchQuery);
+                return Ok(viewModel);
+            }        
+            
         }
     }
 }

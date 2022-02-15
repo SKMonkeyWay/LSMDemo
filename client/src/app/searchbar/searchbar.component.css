@@ -74,6 +74,10 @@ body{
   padding: 10px 35px;
 }
 
+.filter-result .p-position{
+  margin-top:10px;
+}
+
 ul {
   list-style: none; 
 }

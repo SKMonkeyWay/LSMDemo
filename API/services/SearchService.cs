@@ -101,7 +101,7 @@ namespace API.services
                                             l.weight += (8) * (searchType == SearchTypeEnum.ExactSearch ? 10 : 1); //transitive weight of name and shortcut from buildings model.
                                         }
                                     }
-                                    if (comparableSingle == "buildings.shortcut")
+                                    if (comparableSingle == "buildings.shortCut")
                                     {
                                         var buildings = viewModel.buildings.FirstOrDefault(x => x.id == id);
                                         buildings.weight += 7 * (searchType == SearchTypeEnum.ExactSearch ? 10 : 1);
@@ -127,7 +127,7 @@ namespace API.services
                                         var lks = viewModel.locks.FirstOrDefault(x => x.id == id);
                                         lks.weight += 3 * (searchType == SearchTypeEnum.ExactSearch ? 10 : 1);
                                     }
-                                    if (comparableSingle == "locks.serialnumber")
+                                    if (comparableSingle == "locks.serialNumber")
                                     {
                                         var lks = viewModel.locks.FirstOrDefault(x => x.id == id);
                                         lks.weight += 8 * (searchType == SearchTypeEnum.ExactSearch ? 10 : 1);
@@ -137,7 +137,7 @@ namespace API.services
                                         var lks = viewModel.locks.FirstOrDefault(x => x.id == id);
                                         lks.weight += 6 * (searchType == SearchTypeEnum.ExactSearch ? 10 : 1);
                                     }
-                                    if (comparableSingle == "locks.roomnumber")
+                                    if (comparableSingle == "locks.roomNumber")
                                     {
                                         var lks = viewModel.locks.FirstOrDefault(x => x.id == id);
                                         lks.weight += 6 * (searchType == SearchTypeEnum.ExactSearch ? 10 : 1);
@@ -187,7 +187,7 @@ namespace API.services
                                         var mds = viewModel.media.FirstOrDefault(x => x.id == id);
                                         mds.weight += 10 * (searchType == SearchTypeEnum.ExactSearch ? 10 : 1);
                                     }
-                                    if (comparableSingle == "media.serialnumber")
+                                    if (comparableSingle == "media.serialNumber")
                                     {
                                         var mds = viewModel.media.FirstOrDefault(x => x.id == id);
                                         mds.weight += 8 * (searchType == SearchTypeEnum.ExactSearch ? 10 : 1);
