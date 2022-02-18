@@ -65,8 +65,10 @@ namespace API.services
         public static RootViewModel assignWeight(Dictionary<string, object> jsonDict, RootViewModel viewModel, SearchTypeEnum searchType, string SearchTerm)
         {
             var id = "";
+            // acquaring the dictionary with fields name and their respective weights from helper function. 
             Dictionary<string, int> corpusDict = Helper.getCorpus();
-
+            
+            //synchronising data dictionary with fields dictionary to match with the search term and give weights to the fields
             foreach (var single in jsonDict)
             {
                 var arr = single.Key.Split(new string[] { "." }, StringSplitOptions.None);
