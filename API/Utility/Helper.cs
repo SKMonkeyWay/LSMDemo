@@ -8,11 +8,17 @@ namespace API.Utility
 {
     public static class Helper
     {
+        private static string _json;
+
         public static string GetSerializedJSON()
         {
+            if (_json != null)
+                return _json;
+
             string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Data\data.json");
-            string json = File.ReadAllText(path);
-            return json;
+            _json = File.ReadAllText(path);
+
+            return _json;
         }
 
         public static Dictionary<string, object> DeserializeAndFlatten(string json)

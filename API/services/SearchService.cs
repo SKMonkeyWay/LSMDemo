@@ -9,20 +9,21 @@ namespace API.services
 {
     public class SearchService : ISearchService
     {
-        IServiceProvider service = null;
-        public SearchService(IServiceProvider _service)
+        private readonly string _json;
+        private readonly RootViewModel _root;
+
+        public SearchService(string json, RootViewModel root)
         {
-            service = _service;
+            _json = json;
+            _root = root;
         }
-
-
 
         public RootViewModel searchItem(string SearchQuery)
         {
-            string jsonData = Helper.GetSerializedJSON();
-            RootViewModel viewModel = new RootViewModel();
-            viewModel = Newtonsoft.Json.JsonConvert.DeserializeObject<RootViewModel>(jsonData);
-            viewModel = WeightCalcution(SearchQuery, viewModel, jsonData);
+            //string jsonData = Helper.GetSerializedJSON();
+            //RootViewModel viewModel = new RootViewModel();
+            //viewModel = Newtonsoft.Json.JsonConvert.DeserializeObject<RootViewModel>(jsonData);
+            var viewModel = WeightCalcution(SearchQuery, _root, _json);
             return new RootViewModel
             {
                 buildings = viewModel.buildings.Where(x => x.weight > 0).OrderByDescending(x => x.weight).ToList(),

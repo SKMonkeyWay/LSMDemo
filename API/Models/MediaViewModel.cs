@@ -11,7 +11,7 @@ namespace API.Models
         public string groupId { get; set; }
         public string type { get; set; }
         public string owner { get; set; }
-        public object description { get; set; }
+        public string description { get; set; }
         public string serialNumber { get; set; }
         public int weight { get; set; }
     }

@@ -1,4 +1,6 @@
+using API.Models;
 using API.services;
+using API.Utility;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -6,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 
 namespace API
 {
@@ -21,7 +24,7 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<ISearchService, SearchService>();
+            services.AddScoped<ISearchService, SearchService>(sp => new SearchService(Helper.GetSerializedJSON(), JsonConvert.DeserializeObject<RootViewModel>(Helper.GetSerializedJSON())));
             services.AddControllers();
             services.AddCors();
             services.AddSwaggerGen(c =>

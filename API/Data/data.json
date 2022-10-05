@@ -7,6 +7,12 @@
         "description": "Head Office, Feringastraße 4, 85774 Unterföhring"
       },
       {
+        "id": "035df1cf-9979-475f-bbc5-b46d9f364f56",
+        "shortCut": "HASSELHOFF",
+        "name": "Freedom Office",
+        "description": "Berliner Mauer"
+      },
+      {
         "id": "9605186f-7eb4-4f40-967e-2885d9a8b3c4",
         "shortCut": "PROD",
         "name": "Produktionsstätte",
